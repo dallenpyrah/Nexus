@@ -1,0 +1,13 @@
+.container{
+    @apply flex flex-col items-center justify-center min-h-screen py-2;
+}
+
+.title{
+    @apply text-2xl font-semibold;
+}
+
+.sub_title{
+    @apply text-lg font-medium;
+    @apply mt-1;
+    color: #626262;
+}

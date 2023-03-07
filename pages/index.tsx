@@ -1,6 +1,8 @@
 import Head from 'next/head'
-import styles from '@/styles/Home.module.css'
+import styles from '@/styles/pages/Home.module.css'
 import {Button} from "@mui/material";
+import LoginComponent from '@/components/LoginForm';
+import {ForgotPasswordLink} from "@/components/ForgotPasswordLink";
 
 export default function Home() {
   return (
@@ -9,17 +11,13 @@ export default function Home() {
             <title>Nexus</title>
         </Head>
 
-        <main className={styles.main}>
+        <div className={styles.container}>
             <h1 className={styles.title}>
-                <Button variant="contained">Nexus</Button>
-                Made with ❤️ by developers for developers
+                Welcome to Nexus
             </h1>
-
-            <p className={styles.description}>
-                A modern, open-source, cross-platform desktop app for managing your projects and tasks.
-            </p>
-
-        </main>
+            <LoginComponent/>
+            <ForgotPasswordLink/>
+        </div>
     </div>
   )
 }
