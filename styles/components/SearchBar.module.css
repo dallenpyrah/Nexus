@@ -1,0 +1,35 @@
+.search_bar_form{
+    @apply relative;
+    @apply w-full;
+    @apply h-10;
+    @apply mr-10;
+    @apply ml-8;
+    @apply rounded-lg;
+    @apply bg-gray-100;
+    @apply transition-colors;
+    @apply duration-300;
+    @apply focus-within:bg-white;
+}
+
+.search_bar_input{
+    @apply w-full;
+    @apply h-full;
+    @apply rounded-lg;
+    @apply outline-none;
+    @apply pl-12;
+    @apply text-gray-700;
+    @apply placeholder-gray-500;
+    @apply focus:drop-shadow-sm;
+}
+
+.search_button{
+    @apply absolute;
+    @apply top-0;
+    @apply left-0;
+    @apply flex;
+    @apply items-center;
+    @apply justify-center;
+    @apply w-10;
+    @apply h-10;
+    @apply text-gray-500
+}

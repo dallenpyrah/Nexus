@@ -1,13 +1,15 @@
 .container{
     @apply flex flex-col items-center justify-center min-h-screen py-2;
+    @apply bg-gray-100;
 }
 
 .title{
     @apply text-2xl font-semibold;
+    @apply mb-2;
 }
 
 .sub_title{
     @apply text-lg font-medium;
-    @apply mt-1;
+    @apply mb-5;
     color: #626262;
 }

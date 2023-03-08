@@ -1,0 +1,52 @@
+.container{
+    @apply min-h-screen;
+    @apply bg-gray-100;
+}
+
+.title{
+    @apply text-xl font-medium;
+    @apply p-5
+}
+
+.header_row{
+    @apply pt-3 px-3;
+    @apply flex flex-row;
+    @apply items-center;
+}
+
+.settings_icon{
+    @apply mr-5;
+}
+
+.notifications_icon{
+    @apply mr-5;
+}
+
+.dashboard_hub_row{
+    @apply flex flex-row;
+    @apply justify-center;
+    @apply items-center;
+    @apply p-5;
+    @apply mx-8;
+    @apply mt-3;
+    @apply bg-gray-200;
+    @apply rounded-lg;
+    height: 25vh;
+}
+
+.dashboard_content_row{
+    @apply flex flex-row;
+    @apply justify-center;
+    @apply p-5;
+    @apply mt-3;
+    @apply rounded-lg;
+}
+
+.dashboard_content_column{
+    @apply flex flex-col;
+    @apply mt-2;
+    @apply mr-3 ml-4;
+    @apply rounded-lg;
+    @apply w-1/2;
+    height: 60vh;
+}

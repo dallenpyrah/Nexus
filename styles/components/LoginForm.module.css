@@ -1,4 +1,11 @@
 .login_button {
   background-color: #000000;
   color: #ffffff;
+  @apply float-right;
+  @apply text-sm;
+  @apply m-5;
+}
+
+.form {
+  @apply w-1/3;
 }

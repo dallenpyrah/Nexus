@@ -4,7 +4,7 @@ import {Button} from "@mui/material";
 import LoginComponent from '@/components/LoginForm';
 import {ForgotPasswordLink} from "@/components/ForgotPasswordLink";
 
-export default function Home() {
+export default function Home () {
   return (
     <div>
         <Head>
@@ -15,8 +15,13 @@ export default function Home() {
             <h1 className={styles.title}>
                 Welcome to Nexus
             </h1>
+            <p className={styles.sub_title}>
+                Log in to get started
+            </p>
             <LoginComponent/>
-            <ForgotPasswordLink/>
+            <div>
+                <ForgotPasswordLink/>
+            </div>
         </div>
     </div>
   )

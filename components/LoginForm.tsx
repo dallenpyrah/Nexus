@@ -1,8 +1,10 @@
 import React from "react";
 import { TextField, Button } from "@mui/material";
 import styles from '@/styles/components/LoginForm.module.css'
+import {useRouter} from "next/router";
 
 const LoginForm = () => {
+    const router = useRouter();
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
 
@@ -11,8 +13,16 @@ const LoginForm = () => {
         // perform login logic here
     };
 
+    async function login(event: any) {
+        event.preventDefault();
+
+        console.log("Logging in...");
+
+        await router.push('/dashboard');
+    }
+
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={login} className={styles.form}>
             <TextField
                 id="email"
                 label="Email"
@@ -32,7 +42,7 @@ const LoginForm = () => {
                 fullWidth
             />
             <Button variant="contained" className={styles.login_button} type="submit">
-                Login
+                Continue
             </Button>
         </form>
     );
