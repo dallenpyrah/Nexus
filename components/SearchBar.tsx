@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from '@/styles/components/SearchBar.module.css'
 
-export function SearchBar() {
+export const SearchBar = () => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleSearch = (event: { preventDefault: () => void; }) => {
@@ -26,4 +26,4 @@ export function SearchBar() {
             </button>
         </form>
     );
-}
+};

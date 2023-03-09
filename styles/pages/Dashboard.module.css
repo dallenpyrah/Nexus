@@ -23,30 +23,50 @@
 }
 
 .dashboard_hub_row{
-    @apply flex flex-row;
+    @apply flex flex-col;
+    @apply h-full;
     @apply justify-center;
     @apply items-center;
-    @apply p-5;
     @apply mx-8;
     @apply mt-3;
-    @apply bg-gray-200;
     @apply rounded-lg;
-    height: 25vh;
+}
+
+.dashboard_hub_column{
+    @apply mx-4;
+    @apply py-6;
+    @apply rounded;
 }
 
 .dashboard_content_row{
     @apply flex flex-row;
     @apply justify-center;
-    @apply p-5;
-    @apply mt-3;
+    @apply ml-5;
+    @apply mt-16;
     @apply rounded-lg;
+}
+
+.divider{
+    @apply mt-4;
 }
 
 .dashboard_content_column{
     @apply flex flex-col;
+    @apply basis-3/4;
     @apply mt-2;
-    @apply mr-3 ml-4;
+    @apply mr-3 ml-3;
     @apply rounded-lg;
-    @apply w-1/2;
     height: 60vh;
+}
+
+.my_issues{
+    @apply font-bold;
+    @apply text-xl;
+}
+
+.my_issues_sub_title{
+    @apply mt-2;
+    @apply font-medium;
+    @apply text-sm;
+    @apply text-gray-500;
 }
