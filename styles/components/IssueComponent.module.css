@@ -1,0 +1,15 @@
+.issue_row{
+    @apply bg-white my-2 flex items-center px-4 py-7 rounded-lg;
+}
+
+.title{
+    @apply text-black font-bold;
+    @apply text-sm;
+}
+
+.description{
+    @apply mt-1;
+    @apply text-gray-500;
+    @apply text-xs;
+    @apply overflow-hidden overflow-ellipsis;
+}

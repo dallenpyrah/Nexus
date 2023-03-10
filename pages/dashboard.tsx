@@ -1,12 +1,12 @@
 import styles from '@/styles/pages/Dashboard.module.css'
 import {SearchBar} from "@/components/SearchBar";
 import {
-    BugReport, BugReportTwoTone, Build, BuildTwoTone, GroupAddTwoTone,
     Notifications,
     Settings
 } from "@mui/icons-material";
 import {Button, Divider} from "@mui/material";
-import {Hammersmith_One} from "next/dist/compiled/@next/font/dist/google";
+import {QuestionComponent} from "@/components/QuestionComponent";
+import {CreateQuestionComponent} from "@/components/CreateQuestionComponent";
 
 export default function Dashboard () {
     return (
@@ -20,22 +20,19 @@ export default function Dashboard () {
             <Divider className={`${styles.divider}`}/>
             <div className={styles.dashboard_content_row}>
                 <div className={styles.dashboard_content_column}>
-                    <h1 className={styles.my_issues}>
-                        My Issues
-                    </h1>
+                    <div className="mb-2">
+                        <span className={`${styles.issue_title_dashboard} mr-2 bg-gray-800 text-white p-2 rounded`}>My Questions</span>
+                        <span className={`${styles.issue_title_dashboard} mx-2 text-gray-400 hover:text-black transition-colors duration-300`}>My Answers</span>
+                    </div>
                     <p className={styles.my_issues_sub_title}>
                         All of the issues you have created or contributed on will appear here
                     </p>
-                    <div className={styles.issue_row}>
-                        <BugReportTwoTone className={styles.issue_icon}/>
-                        <div className={styles.issue_column}>
-                            <h1 className={styles.issue_title}>
-                                Issue Title
-                            </h1>
-                            <p className={styles.issue_sub_title}>
-                                Issue Subtitle
-                            </p>
-                        </div>
+                    <div>
+                        <QuestionComponent title={"Why hooks are the best thing to happen to React"} description={"Originally, React mainly used class components, which can be strenuous at times as you always had to switch between classes, higher-order components, and render props. With React hooks, you can now do all these without switching, using functional components."}/>
+                        <QuestionComponent title={"Why hooks are the best thing to happen to React"} description={"Originally, React mainly used class components, which can be strenuous at times as you always had to switch between classes, higher-order components, and render props. With React hooks, you can now do all these without switching, using functional components."}/>
+                        <QuestionComponent title={"Why hooks are the best thing to happen to React"} description={"Originally, React mainly used class components, which can be strenuous at times as you always had to switch between classes, higher-order components, and render props. With React hooks, you can now do all these without switching, using functional components."}/>
+                        <QuestionComponent title={"Why hooks are the best thing to happen to React"} description={"Originally, React mainly used class components, which can be strenuous at times as you always had to switch between classes, higher-order components, and render props. With React hooks, you can now do all these without switching, using functional components."}/>
+                        <CreateQuestionComponent/>
                     </div>
                 </div>
             </div>

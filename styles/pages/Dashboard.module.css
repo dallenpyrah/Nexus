@@ -59,14 +59,16 @@
     height: 60vh;
 }
 
-.my_issues{
+.issue_title_dashboard{
     @apply font-bold;
     @apply text-xl;
 }
 
 .my_issues_sub_title{
     @apply mt-2;
+    @apply mb-5;
     @apply font-medium;
     @apply text-sm;
     @apply text-gray-500;
 }
+
