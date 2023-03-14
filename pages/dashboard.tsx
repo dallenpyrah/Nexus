@@ -8,10 +8,10 @@ import {useEffect, useState} from "react";
 import {DashboardService} from "@/services/DashboardService";
 import {TabType} from "@/enums/TabTypes";
 import {QuestionsList} from "@/components/QuestionsList";
-import {IQuestion} from "@/interfaces/IQuestion";
 import {UserQuestionsService} from "@/services/UserQuestionsService";
 import {UserAnswersService} from "@/services/UserAnswersService";
-import {IAnswer} from "@/interfaces/IAnswer";
+import {useQuestionsStore} from "@/stores/QuestionsStore";
+import {useAnswersStore} from "@/stores/AnswersStore";
 
 const dashboardService = new DashboardService();
 const userQuestionsService = new UserQuestionsService();
@@ -19,8 +19,8 @@ const userAnswersService = new UserAnswersService();
 
 export default function Dashboard () {
     const [activeTab, setActiveTab] = useState("my_questions");
-    const [questions, setQuestions] = useState([] as IQuestion[]);
-    const [answers, setAnswers] = useState([] as IAnswer[]);
+    const { setAnswers, answers } = useAnswersStore();
+    const { setQuestions, questions } = useQuestionsStore();
 
     const isMyQuestionsTabActive = dashboardService.isTabActive(activeTab, TabType.MY_QUESTIONS);
     const isMyAnswersTabActive = dashboardService.isTabActive(activeTab, TabType.MY_ANSWERS);
@@ -31,7 +31,7 @@ export default function Dashboard () {
         switch (activeTab) {
             case TabType.MY_QUESTIONS:
                 const userQuestions = await userQuestionsService.getUserQuestions();
-                setQuestions(userQuestions);
+                setQuestions(userQuestions)
                 break;
             case TabType.MY_ANSWERS:
                 const userAnswers = await userAnswersService.getUserAnswers();
@@ -49,7 +49,7 @@ export default function Dashboard () {
     }
 
     useEffect(() => {
-        displayActiveTabInformation().then(r => console.log("done"));
+        displayActiveTabInformation()
     }, [activeTab]);
 
     return (
