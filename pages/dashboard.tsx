@@ -2,23 +2,55 @@ import styles from '@/styles/pages/Dashboard.module.css'
 import {SearchBar} from "@/components/SearchBar";
 import {Notifications, Settings} from "@mui/icons-material";
 import {Divider} from "@mui/material";
-import {QuestionComponent} from "@/components/QuestionComponent";
 import {CreateQuestionButton} from "@/components/CreateQuestionButton";
 import {QuestionTitleHeader} from "@/components/QuestionTitleHeader";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {DashboardService} from "@/services/DashboardService";
 import {TabType} from "@/enums/TabTypes";
 import {QuestionsList} from "@/components/QuestionsList";
+import {IQuestion} from "@/interfaces/IQuestion";
+import {UserQuestionsService} from "@/services/UserQuestionsService";
+import {UserAnswersService} from "@/services/UserAnswersService";
+import {IAnswer} from "@/interfaces/IAnswer";
 
 const dashboardService = new DashboardService();
+const userQuestionsService = new UserQuestionsService();
+const userAnswersService = new UserAnswersService();
 
 export default function Dashboard () {
     const [activeTab, setActiveTab] = useState("my_questions");
+    const [questions, setQuestions] = useState([] as IQuestion[]);
+    const [answers, setAnswers] = useState([] as IAnswer[]);
 
     const isMyQuestionsTabActive = dashboardService.isTabActive(activeTab, TabType.MY_QUESTIONS);
     const isMyAnswersTabActive = dashboardService.isTabActive(activeTab, TabType.MY_ANSWERS);
     const isSavedQuestionsTabActive = dashboardService.isTabActive(activeTab, TabType.SAVED_QUESTIONS);
     const isSavedAnswersTabActive = dashboardService.isTabActive(activeTab, TabType.SAVED_ANSWERS);
+
+    async function displayActiveTabInformation() {
+        switch (activeTab) {
+            case TabType.MY_QUESTIONS:
+                const userQuestions = await userQuestionsService.getUserQuestions();
+                setQuestions(userQuestions);
+                break;
+            case TabType.MY_ANSWERS:
+                const userAnswers = await userAnswersService.getUserAnswers();
+                setAnswers(userAnswers);
+                break;
+            case TabType.SAVED_QUESTIONS:
+                const savedQuestions = await userQuestionsService.getSavedQuestions();
+                setQuestions(savedQuestions);
+                break;
+            case TabType.SAVED_ANSWERS:
+                const savedAnswers = await userAnswersService.getSavedAnswers();
+                setAnswers(savedAnswers);
+                break;
+        }
+    }
+
+    useEffect(() => {
+        displayActiveTabInformation().then(r => console.log("done"));
+    }, [activeTab]);
 
     return (
         <div className={styles.container}>
@@ -41,7 +73,7 @@ export default function Dashboard () {
                         All of the issues you have created or contributed on will appear here
                     </p>
                     <div>
-                        <QuestionsList questions={["Test"]} />
+                        <QuestionsList questions={questions} />
                         <CreateQuestionButton/>
                     </div>
                 </div>
