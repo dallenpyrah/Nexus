@@ -18,7 +18,7 @@ const userQuestionsService = new UserQuestionsService();
 const userAnswersService = new UserAnswersService();
 
 export default function Dashboard () {
-    const [activeTab, setActiveTab] = useState("my_questions");
+    const [activeTab, setActiveTab] = useState(TabType.MY_QUESTIONS);
     const { setAnswers, answers } = useAnswersStore();
     const { setQuestions, questions } = useQuestionsStore();
 

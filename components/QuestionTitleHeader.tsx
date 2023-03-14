@@ -5,7 +5,7 @@ import {TabType} from "@/enums/TabTypes";
 interface IQuestionTitleHeaderProps {
     title: string;
     isActive: boolean;
-    setActiveTab: Dispatch<SetStateAction<string>>;
+    setActiveTab: Dispatch<SetStateAction<TabType>>;
     tabType: TabType;
 }
 
