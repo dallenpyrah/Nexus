@@ -1,7 +1,7 @@
 import styles from '@/styles/components/CreateIssueComponent.module.css'
 import {Add} from "@mui/icons-material";
 
-export const CreateQuestionComponent = () => {
+export const CreateQuestionButton = () => {
     return (
         <div className={styles.create_issue_row}>
             <div className={styles.create_issue_column}>
