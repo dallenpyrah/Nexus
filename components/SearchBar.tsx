@@ -6,7 +6,6 @@ export const SearchBar = () => {
 
     const handleSearch = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
-        // Do something with the search term
         console.log(`Searching for "${searchTerm}"`);
     };
 
