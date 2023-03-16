@@ -2,8 +2,8 @@ import styles from '@/styles/pages/Dashboard.module.css'
 import {SearchBar} from "@/components/SearchBar";
 import {Notifications, Settings} from "@mui/icons-material";
 import {Divider} from "@mui/material";
-import {CreateQuestionButton} from "@/components/CreateQuestionButton";
-import {QuestionTitleHeader} from "@/components/QuestionTitleHeader";
+import {DashboardCreateButton} from "@/components/DashboardCreateButton";
+import {DashboardTitleHeader} from "@/components/DashboardTitleHeader";
 import {useEffect, useState} from "react";
 import {DashboardService} from "@/services/DashboardService";
 import {TabType} from "@/enums/TabTypes";
@@ -12,6 +12,7 @@ import {UserQuestionsService} from "@/services/UserQuestionsService";
 import {UserAnswersService} from "@/services/UserAnswersService";
 import {useQuestionsStore} from "@/stores/QuestionsStore";
 import {useAnswersStore} from "@/stores/AnswersStore";
+import {AnswersList} from "@/components/AnswersList";
 
 const dashboardService = new DashboardService();
 const userQuestionsService = new UserQuestionsService();
@@ -26,6 +27,8 @@ export default function Dashboard () {
     const isMyAnswersTabActive = dashboardService.isTabActive(activeTab, TabType.MY_ANSWERS);
     const isSavedQuestionsTabActive = dashboardService.isTabActive(activeTab, TabType.SAVED_QUESTIONS);
     const isSavedAnswersTabActive = dashboardService.isTabActive(activeTab, TabType.SAVED_ANSWERS);
+    const isMyTopicsTabActive = dashboardService.isTabActive(activeTab, TabType.MY_TOPICS);
+    const isSubscribedTopicsTabActive = dashboardService.isTabActive(activeTab, TabType.SUBSCRIBED_TOPICS);
 
     async function displayActiveTabInformation() {
         switch (activeTab) {
@@ -64,17 +67,18 @@ export default function Dashboard () {
             <div className={styles.dashboard_content_row}>
                 <div className={styles.dashboard_content_column}>
                     <div className="mb-2">
-                        <QuestionTitleHeader title={"My Questions"} isActive={isMyQuestionsTabActive} setActiveTab={setActiveTab} tabType={TabType.MY_QUESTIONS} />
-                        <QuestionTitleHeader title={"My Answers"} isActive={isMyAnswersTabActive} setActiveTab={setActiveTab} tabType={TabType.MY_ANSWERS}  />
-                        <QuestionTitleHeader title={"Saved Questions"} isActive={isSavedQuestionsTabActive} setActiveTab={setActiveTab} tabType={TabType.SAVED_QUESTIONS}  />
-                        <QuestionTitleHeader title={"Saved Answers"} isActive={isSavedAnswersTabActive} setActiveTab={setActiveTab} tabType={TabType.SAVED_ANSWERS}  />
+                        <DashboardTitleHeader title={"My Questions"} isActive={isMyQuestionsTabActive} setActiveTab={setActiveTab} tabType={TabType.MY_QUESTIONS} />
+                        <DashboardTitleHeader title={"Saved Questions"} isActive={isSavedQuestionsTabActive} setActiveTab={setActiveTab} tabType={TabType.SAVED_QUESTIONS}  />
+                        <DashboardTitleHeader title={"My Answers"} isActive={isMyAnswersTabActive} setActiveTab={setActiveTab} tabType={TabType.MY_ANSWERS}  />
+                        <DashboardTitleHeader title={"Saved Answers"} isActive={isSavedAnswersTabActive} setActiveTab={setActiveTab} tabType={TabType.SAVED_ANSWERS}  />
+                        <DashboardTitleHeader title={"My Topics"} isActive={isMyTopicsTabActive} setActiveTab={setActiveTab} tabType={TabType.MY_TOPICS}  />
+                        <DashboardTitleHeader title={"Subscribed Topics"} isActive={isSubscribedTopicsTabActive} setActiveTab={setActiveTab} tabType={TabType.SUBSCRIBED_TOPICS}  />
                     </div>
-                    <p className={styles.my_issues_sub_title}>
-                        All of the issues you have created or contributed on will appear here
-                    </p>
                     <div>
-                        <QuestionsList questions={questions} />
-                        <CreateQuestionButton/>
+                        {(isMyQuestionsTabActive || isSavedQuestionsTabActive) && <QuestionsList questions={questions} />}
+                        {(isMyAnswersTabActive || isSavedAnswersTabActive) && <AnswersList answers={answers} />}
+                        {(isMyQuestionsTabActive || isSavedQuestionsTabActive) && <DashboardCreateButton text={"Create Question"}/>}
+                        {(isMyTopicsTabActive || isSubscribedTopicsTabActive) && <DashboardCreateButton text={"Create Topic"}/>}
                     </div>
                 </div>
             </div>
