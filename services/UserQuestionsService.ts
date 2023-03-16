@@ -1,8 +1,8 @@
-import {IQuestion} from "@/interfaces/IQuestion";
+import {Question} from "@/types/Question";
 
 export class UserQuestionsService {
 
-    async getUserQuestions() : Promise<IQuestion[]> {
+    async getUserQuestions() : Promise<Question[]> {
         return [{
             id: 1,
             title: "What is the capital of France?",
@@ -10,7 +10,7 @@ export class UserQuestionsService {
         }];
     }
 
-    async getSavedQuestions() : Promise<IQuestion[]> {
+    async getSavedQuestions() : Promise<Question[]> {
         return [{
             id: 1,
             title: "What is the capital of Belgium?",

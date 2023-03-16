@@ -1,7 +1,7 @@
 import styles from '@/styles/components/NavigationToolBar.module.css'
-import {SearchBar} from "@/components/SearchBar";
+import {SearchBar} from "@/components/search-bars/SearchBar";
 import {Notifications} from "@mui/icons-material";
-import {SettingsDropdown} from "@/components/SettingsDropdown";
+import {SettingsDropdown} from "@/components/dropdowns/SettingsDropdown";
 
 export const NavigationToolBar = () => {
     return (

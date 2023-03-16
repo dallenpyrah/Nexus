@@ -1,6 +1,6 @@
 import styles from "@/styles/components/IssueComponent.module.css";
 import {Avatar} from "@mui/material";
-import {IAnswerComponentProps} from "@/interfaces/IAnswerComponentProps";
+import {IAnswerComponentProps} from "@/interfaces/props/IAnswerComponentProps";
 
 export const AnswerComponent = (props: IAnswerComponentProps) => {
     return (

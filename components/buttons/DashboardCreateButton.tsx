@@ -1,9 +1,9 @@
 import styles from '@/styles/components/CreateIssueComponent.module.css'
 import {Add} from "@mui/icons-material";
-import {IDashboardCreateButton} from "@/interfaces/IDashboardCreateButton";
+import {IDashboardCreateButtonProps} from "@/interfaces/props/IDashboardCreateButtonProps";
 import {useRouter} from "next/router";
 
-export const DashboardCreateButton = (props: IDashboardCreateButton) => {
+export const DashboardCreateButton = (props: IDashboardCreateButtonProps) => {
     const router = useRouter();
 
     const handleClick = async () => {

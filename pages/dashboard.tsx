@@ -1,6 +1,6 @@
 import styles from '@/styles/pages/Dashboard.module.css';
-import {DashboardCreateButton} from "@/components/DashboardCreateButton";
-import {DashboardTitleHeader} from "@/components/DashboardTitleHeader";
+import {DashboardCreateButton} from "@/components/buttons/DashboardCreateButton";
+import {DashboardTitleHeader} from "@/components/headers/DashboardTitleHeader";
 import {Divider} from "@mui/material";
 import {useCallback, useState} from "react";
 import {DashboardService} from "@/services/DashboardService";
@@ -9,7 +9,7 @@ import {UserAnswersService} from "@/services/UserAnswersService";
 import {TabType} from "@/enums/TabTypes";
 import {useQuestionsStore} from "@/stores/QuestionsStore";
 import {useAnswersStore} from "@/stores/AnswersStore";
-import {NavigationToolBar} from "@/components/NavigationToolBar";
+import {NavigationToolBar} from "@/components/tool-bars/NavigationToolBar";
 import {QuestionComponent} from "@/components/QuestionComponent";
 import {AnswerComponent} from "@/components/AnswerComponent";
 

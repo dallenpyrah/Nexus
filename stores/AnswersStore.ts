@@ -1,8 +1,8 @@
 import { create } from 'zustand'
-import {IAnswer} from "@/interfaces/IAnswer";
-import {IAnswersState} from "@/interfaces/IAnswersState";
+import {Answer} from "@/types/Answer";
+import {IAnswersState} from "@/interfaces/state/IAnswersState";
 
 export const useAnswersStore = create<IAnswersState>((set) => ({
-    answers: [] as IAnswer[],
-    setAnswers: (answers: IAnswer[]) => set({ answers }),
+    answers: [] as Answer[],
+    setAnswers: (answers: Answer[]) => set({ answers }),
 }))

@@ -1,15 +1,15 @@
-import {IAnswer} from "@/interfaces/IAnswer";
+import {Answer} from "@/types/Answer";
 
 export class UserAnswersService {
 
-    async getUserAnswers() : Promise<IAnswer[]> {
+    async getUserAnswers() : Promise<Answer[]> {
         return [{
             response: "test",
             id: 1
         }]
     }
 
-    async getSavedAnswers() : Promise<IAnswer[]> {
+    async getSavedAnswers() : Promise<Answer[]> {
         return [{
             response: "test",
             id: 1
