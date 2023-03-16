@@ -13,6 +13,7 @@ import {UserAnswersService} from "@/services/UserAnswersService";
 import {useQuestionsStore} from "@/stores/QuestionsStore";
 import {useAnswersStore} from "@/stores/AnswersStore";
 import {AnswersList} from "@/components/AnswersList";
+import {SettingsDropdown} from "@/components/SettingsDropdown";
 
 const dashboardService = new DashboardService();
 const userQuestionsService = new UserQuestionsService();
@@ -61,7 +62,7 @@ export default function Dashboard () {
                 <h1 className={styles.title}>Nexus</h1>
                 <SearchBar/>
                 <Notifications className={styles.notifications_icon}/>
-                <Settings className={styles.settings_icon}/>
+                <SettingsDropdown/>
             </div>
             <Divider className={`${styles.divider}`}/>
             <div className={styles.dashboard_content_row}>
